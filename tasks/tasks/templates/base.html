@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Task Management{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-1/4 bg-blue-900 text-white h-screen p-5">
+            <h2 class="text-2xl font-bold mb-5">Tasky</h2>
+            <ul>
+                <li class="mb-2"><a href="{% url 'task_list' %}" class="hover:underline">Dashboard</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Tasks</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Calendar</a></li>
+                <li class="mb-2"><a href="#" class="hover:underline">Members</a></li>
+            </ul>
+        </div>
+        <!-- Main Content -->
+        <div class="w-3/4 p-10">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
